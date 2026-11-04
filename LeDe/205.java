@@ -1,0 +1,19 @@
+class Solution {
+    public boolean isIsomorphic(String s, String t) {
+        int[] indexS = new int[256];
+        int[] indexT = new int[256];
+        
+        int n = s.length();
+        for(int i=0;i<n;i++){
+            char charS = s.charAt(i);
+            char charT = t.charAt(i);
+            
+            if(indexS[charS] != indexT[charT]){
+                return false;
+            }
+            indexS[charS] = i + 1;
+            indexT[charT] = i + 1;
+        }
+        return true;
+    }
+}
